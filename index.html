@@ -349,204 +349,203 @@
             </div>
           </div>
         </section>
+<section id="page-customization">
+  <div class="step">
+    <h3>
+      <span class="step-number">2</span>Customizing Your Storefront Pages
+    </h3>
+    <p>
+      Let's bring your brand to life! This section guides you through
+      customizing the key pages of your e-commerce site.
+    </p>
 
-        <section id="page-customization">
-          <div class="step">
-            <h3>
-              <span class="step-number">2</span>Customizing Your Storefront
-              Pages
-            </h3>
+    <!-- Browser Tab Customization -->
+    <div class="page-preview">
+      <h4>1. Browser Tab Customization(In your E-commerce-Project)</h4>
+      <p>
+        Make your store recognizable in browser tabs by setting a custom title and icon.
+      </p>
+      <img
+        src="public/Screenshot-title.png"
+        alt="Browser tab customization preview"
+      />
+
+      <div class="note">
+        <h5>Customization Instructions:</h5>
+        <ol>
+          <li>
+            <strong>Update Tab Title & Description:</strong>
             <p>
-              Let's bring your brand to life! This section guides you through
-              customizing the key pages of your e-commerce site.
+              Edit the metadata in your layout file:
+              <code>src/app/layout.tsx</code>
             </p>
-
-            <div class="page-preview">
-              <h4>1. Shopping Home Page</h4>
-              <p>
-                This is the main storefront where customers get their first
-                impression and start browsing.
-              </p>
-              <img
-                src="public/Screenshot0002.png"
-                alt="Shopping Home Page Preview"
-              />
-
-              <div class="note">
-                <h5>Customization Instructions:</h5>
-                <ol>
-                  <li>
-                    <strong
-                      >Update Your Logo:(In your frontend
-                      E-Commerce-Project)</strong
-                    >
-                    <p>
-                      Simply replace the placeholder logo at
-                      <code>E-Commerce-Project/public/logo.png</code> with your
-                      own file. For best results, use a transparent PNG.
-                    </p>
-                    <img
-                      src="public/logoadd.png"
-                      alt="Logo change example"
-                      style="
-                        max-width: 300px;
-                        border: 1px solid #ddd;
-                        margin: 10px 0;
-                      "
-                    />
-                  </li>
-                  <li>
-                    <strong
-                      >Define Product Categories:(In your backend file)</strong
-                    >
-                    <p>
-                      Easily edit your product categories in the shared
-                      configuration file located at:
-                      <code>E-Commerce-Backend/shared/Frontend/Shared.js</code>
-                    </p>
-                    <div class="code-block-wrapper">
-                      <pre><code>// shared/categories.js
-module.exports = {
-  PRODUCT_CATEGORIES: [
-    "Man",
-    "Woman",
-    "Kids",
-    "Electronics",  // Add new categories here
-    "Home Decor"    // Separate each with a comma
-  ]
-};</code></pre>
-                      <button class="copy-btn">Copy</button>
-                    </div>
-                    <p>
-                      After saving, restart your server, and the changes will
-                      automatically appear in the navigation menu.
-                    </p>
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div class="page-preview">
-              <h4>2. Shopping Cart & Checkout</h4>
-              <p>
-                A seamless checkout process is vital. Here, customers review
-                their cart and finalize their purchase.
-              </p>
-              <img
-                src="public/Screenshot0003.png"
-                alt="Shopping Cart Page Preview"
-              />
-
-              <div class="note">
-                <h5>
-                  Configuring State-Based Delivery Costs(in your
-                  E-Commerce-Project)
-                </h5>
-                <p>
-                  You can set unique delivery fees for different states. All
-                  configuration is managed in one central file:
-                  <code>E-Commerce-Project/src/data/AddressData.js</code>.
-                </p>
-                <h6>Step 1: Set Delivery Costs</h6>
-                <p>
-                  Open the file and modify the <code>deliveryCost</code> for
-                  each state object.
-                </p>
-                <div class="code-block-wrapper">
-                  <pre><code>// data/AddressData.js
-export const USStates = [
-  { name: "Alabama", deliveryCost: 8 },
-  { name: "Alaska", deliveryCost: 15 },
-  // ... all other states
-];</code></pre>
-                  <button class="copy-btn">Copy</button>
-                </div>
-                <img
-                  src="public/addresdata.png"
-                  alt="State configuration example"
-                  style="
-                    max-width: 500px;
-                    border: 1px solid #ddd;
-                    margin: 10px 0;
-                  "
-                />
-
-                <h6>Step 2: How It Works</h6>
-                <p>
-                  The system is designed to update costs automatically. When a
-                  user selects a state from the checkout form, the corresponding
-                  delivery fee is instantly fetched from
-                  <code>AddressData.js</code> and added to the order total.
-                </p>
-
-                <h6>Step 3: Testing Your Configuration</h6>
-                <p>To ensure everything works correctly:</p>
-                <ol>
-                  <li>Add a product to your cart and proceed to checkout.</li>
-                  <li>Select various states from the address form dropdown.</li>
-                  <li>
-                    Verify that the "Delivery Cost" in the order summary updates
-                    accurately for each state.
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            <div class="page-preview">
-              <h4>3. About & Contact Pages</h4>
-              <p>
-                Build trust and provide support through well-crafted
-                informational pages.
-              </p>
-              <img
-                src="public/Screenshot0001.png"
-                alt="Contact and About Page Preview"
-              />
-
-              <div class="note">
-                <h5>Editing Page Content (in your E-Commerce-Project)</h5>
-                <h6>1. Update Contact Information</h6>
-                <p>
-                  Modify contact details in
-                  <code>E-Commerce-Project/src/data/Abouttt/Contact.ts</code>:
-                </p>
-                <div class="code-block-wrapper">
-                  <pre><code>// E-Commerce-Project/src/data/Abouttt/Contact.ts
-export const contactInfo = {
-  email: {
-    icon: &lt;Mail className="w-5 h-5" /&gt;,
-    title: "Email",
-    lines: ["support@yourstore.com", "sales@yourstore.com"]
-  },
-  phone: {
-    icon: &lt;Phone className="w-5 h-5" /&gt;,
-    title: "Phone",
-    lines: ["+1 (555) 123-4567"]
+            <div class="code-block-wrapper">
+              <pre><code>// layout.tsx
+export const metadata: Metadata = {
+  title: "Your Shop Name",  // Change this
+  description: "Your shop description for SEO",  // Change this
+  icons: {
+    icon: '/favicon.ico',  // Default icon path
   }
 };</code></pre>
-                  <button class="copy-btn">Copy</button>
-                </div>
-
-                <h6>2. Manage FAQ Content</h6>
-                <p>
-                  Add or edit questions and answers in
-                  <code>E-Commerce-Project/src/data/Abouttt/Faqs.ts</code>:
-                </p>
-                <div class="code-block-wrapper">
-                  <pre><code>// E-Commerce-Project/src/data/Abouttt/Faqs.ts
-export const faqs = [
-  {
-    question: "How long does shipping take?",
-    answer: "Most orders ship within 1-2 business days..."
-  },
-  // Add more Q&A pairs here
-];</code></pre>
-                  <button class="copy-btn">Copy</button>
-                </div>
-              </div>
+              <button class="copy-btn">Copy</button>
             </div>
-          </div>
-        </section>
+          </li>
+          <li>
+            <strong>Add Custom Favicon:</strong>
+            <p>
+              Replace the default favicon at:
+              <code>src/app/favicon.ico</code>
+            </p>
+            <img
+              src="public/Screenshottab-icon.png"
+              alt="Favicon replacement example"
+              style="max-width: 300px; border: 1px solid #ddd; margin: 10px 0;"
+            />
+            <p>For best results:</p>
+            <ul>
+              <li>Use 512×512 source image</li>
+              <li>Convert to .ico format</li>
+              <li>Multiple sizes recommended (16x16, 32x32, 64x64)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Rest of your existing content -->
+    <div class="page-preview">
+      <h4>2. Shopping Home Page</h4>
+      <p>
+        This is the main storefront where customers get their first
+        impression and start browsing.
+      </p>
+      <img
+        src="public/Screenshot0002.png"
+        alt="Shopping Home Page Preview"
+      />
+
+      <div class="note">
+        <h5>Customization Instructions:</h5>
+        <ol>
+          <li>
+            <strong>Update Your Logo:</strong>
+            <p>
+              Replace the placeholder logo at
+              <code>public/logo.png</code> with your own file.
+            </p>
+            <img
+              src="public/logoadd.png"
+              alt="Logo change example"
+              style="max-width: 300px; border: 1px solid #ddd; margin: 10px 0;"
+            />
+          </li>
+          <li>
+            <strong>Define Product Categories:</strong>
+            <p>
+              Edit categories in:
+              <code>src/data/categories.js</code>
+            </p>
+            <div class="code-block-wrapper">
+              <pre><code>// categories.js
+module.exports = {
+  PRODUCT_CATEGORIES: [
+    "Men",
+    "Women",
+    "Kids",
+    "Electronics",
+    "Home Decor"
+  ]
+};</code></pre>
+              <button class="copy-btn">Copy</button>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Shopping Cart & Checkout Section -->
+    <div class="page-preview">
+      <h4>3. Shopping Cart & Checkout</h4>
+      <p>
+        A seamless checkout process is vital for conversions.
+      </p>
+      <img
+        src="public/Screenshot0003.png"
+        alt="Shopping Cart Page Preview"
+      />
+
+      <div class="note">
+        <h5>Configuring Delivery Costs:</h5>
+        <ol>
+          <li>
+            <strong>Edit State-Based Delivery:</strong>
+            <p>
+              Modify <code>src/data/AddressData.js</code>:
+            </p>
+            <div class="code-block-wrapper">
+              <pre><code>// AddressData.js
+export const USStates = [
+  { name: "California", deliveryCost: 5 },
+  { name: "New York", deliveryCost: 7 },
+  // ... other states
+];</code></pre>
+              <button class="copy-btn">Copy</button>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- About & Contact Pages Section -->
+    <div class="page-preview">
+      <h4>4. About & Contact Pages</h4>
+      <p>
+        Build trust with well-crafted informational pages.
+      </p>
+      <img
+        src="public/Screenshot0001.png"
+        alt="Contact Page Preview"
+      />
+
+      <div class="note">
+        <h5>Content Customization:</h5>
+        <ol>
+          <li>
+            <strong>Update Contact Info:</strong>
+            <p>
+              Edit <code>src/data/contactInfo.js</code>:
+            </p>
+            <div class="code-block-wrapper">
+              <pre><code>// contactInfo.js
+export default {
+  email: "contact@yourstore.com",
+  phone: "+1 (555) 123-4567"
+};</code></pre>
+              <button class="copy-btn">Copy</button>
+            </div>
+          </li>
+          <li>
+            <strong>Update FAQs:</strong>
+            <p>
+              Edit <code>src/data/faqs.js</code>:
+            </p>
+            <div class="code-block-wrapper">
+              <pre><code>// faqs.js
+export default [
+  {
+    question: "What's your return policy?",
+    answer: "30 days money back guarantee."
+  }
+];</code></pre>
+              <button class="copy-btn">Copy</button>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section id="deployment">
           <div class="step">
