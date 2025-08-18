@@ -1,328 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Commerce Project Setup Guide | Complete Guide</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* --- General & Root Styles --- */
-        :root {
-            --primary-color: #4f46e5;
-            --primary-hover: #4338ca;
-            --secondary-color: #10b981;
-            --secondary-hover: #059669;
-            --danger-color: #ef4444;
-            --warning-bg: #fef2f2;
-            --warning-border: #f87171;
-            --note-bg: #eff6ff;
-            --note-border: #60a5fa;
-            --dark-blue: #1e293b;
-            --slate-gray: #475569;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
+      /* --- General & Root Styles --- */
+      :root {
+        --primary-color: #4f46e5;
+        --primary-hover: #4338ca;
+        --secondary-color: #10b981;
+        --secondary-hover: #059669;
+        --danger-color: #ef4444;
+        --warning-bg: #fef2f2;
+        --warning-border: #f87171;
+        --note-bg: #eff6ff;
+        --note-border: #60a5fa;
+        --dark-blue: #1e293b;
+        --slate-gray: #475569;
+        --light-gray: #f1f5f9;
+        --white: #ffffff;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: var(--slate-gray);
-            background-color: var(--light-gray);
-            font-size: 16px;
-        }
+      body {
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        color: var(--slate-gray);
+        background-color: var(--light-gray);
+        font-size: 16px;
+      }
 
-        /* --- Layout & Typography --- */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+      /* --- Layout & Typography --- */
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
 
-        h1, h2, h3, h4, h5 {
-            color: var(--dark-blue);
-            font-weight: 600;
-            line-height: 1.3;
-        }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        color: var(--dark-blue);
+        font-weight: 600;
+        line-height: 1.3;
+      }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 15px;
-            margin-bottom: 40px;
-        }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 15px;
+        margin-bottom: 40px;
+      }
 
-        h2 {
-            font-size: 1.75rem;
-            margin-bottom: 20px;
-        }
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+      }
 
-        h3 {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
+      h3 {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 25px;
+      }
 
-        h4 {
-            font-size: 1.25rem;
-            margin-bottom: 15px;
-        }
-        
-        h5 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
+      h4 {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+      }
 
-        p {
-            margin-bottom: 1rem;
-        }
+      h5 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
+      p {
+        margin-bottom: 1rem;
+      }
 
-        /* --- Step & Card Styling --- */
-        .step {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
 
-        .step-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-color);
-            color: white;
-            min-width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
+      a:hover {
+        text-decoration: underline;
+      }
 
-        /* --- Alert & Note Boxes --- */
-        .note, .warning {
-            padding: 20px;
-            margin: 25px 0;
-            border-left-width: 5px;
-            border-left-style: solid;
-            border-radius: 0 8px 8px 0;
-        }
+      /* --- Step & Card Styling --- */
+      .step {
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
 
-        .note {
-            background-color: var(--note-bg);
-            border-color: var(--note-border);
-        }
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: white;
+        min-width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
 
-        .warning {
-            background-color: var(--warning-bg);
-            border-color: var(--warning-border);
-        }
-        
-        .warning strong {
-            color: var(--danger-color);
-        }
+      /* --- Alert & Note Boxes --- */
+      .note,
+      .warning {
+        padding: 20px;
+        margin: 25px 0;
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-radius: 0 8px 8px 0;
+      }
 
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin: 10px 0;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.2s;
-            border: none;
-        }
+      .note {
+        background-color: var(--note-bg);
+        border-color: var(--note-border);
+      }
 
-        .btn:hover {
-            background-color: var(--secondary-hover);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
+      .warning {
+        background-color: var(--warning-bg);
+        border-color: var(--warning-border);
+      }
 
-        /* --- Code Block Styling --- */
-        .code-block-wrapper {
-            position: relative;
-            margin: 15px 0;
-        }
-        
-        pre {
-            background-color: #1e293b;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-        }
+      .warning strong {
+        color: var(--danger-color);
+      }
 
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #475569;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem;
-            transition: background-color 0.3s;
-        }
+      /* --- Buttons --- */
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: white !important;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        margin: 10px 0;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.2s;
+        border: none;
+      }
 
-        .copy-btn:hover {
-            background-color: #64748b;
-        }
-        
-        .copy-btn.copied {
-            background-color: #10b981;
-        }
+      .btn:hover {
+        background-color: var(--secondary-hover);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
 
-        /* --- Page Preview & Customization --- */
-        .page-preview {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 30px 0;
-            box-shadow: var(--shadow);
-        }
+      /* --- Code Block Styling --- */
+      .code-block-wrapper {
+        position: relative;
+        margin: 15px 0;
+      }
 
-        .page-preview img {
-            max-width: 100%;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-        
-        ol, ul {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 0.75rem;
-        }
+      pre {
+        background-color: #1e293b;
+        color: #e2e8f0;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9rem;
+      }
 
-        /* --- Resource Cards for Deployment --- */
-        .resource-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--secondary-color);
-        }
-        
-        .resource-card p:last-of-type {
-            margin-bottom: 0;
-            color: #64748b;
-        }
+      .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #475569;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8rem;
+        transition: background-color 0.3s;
+      }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+      .copy-btn:hover {
+        background-color: #64748b;
+      }
+
+      .copy-btn.copied {
+        background-color: #10b981;
+      }
+
+      /* --- Page Preview & Customization --- */
+      .page-preview {
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: var(--shadow);
+      }
+
+      .page-preview img {
+        max-width: 100%;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      ol,
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 0.75rem;
+      }
+
+      /* --- Resource Cards for Deployment --- */
+      .resource-card {
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 25px;
+        margin: 20px 0;
+        box-shadow: var(--shadow);
+        border-left: 5px solid var(--secondary-color);
+      }
+
+      .resource-card p:last-of-type {
+        margin-bottom: 0;
+        color: #64748b;
+      }
+
+      /* --- Footer --- */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        color: #64748b;
+        font-size: 0.9rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>🚀 E-Commerce Project Setup Guide</h1>
-        </header>
+      <header>
+        <h1>🚀 E-Commerce Project Setup Guide</h1>
+      </header>
 
-        <main>
-            <section id="introduction">
-                <div class="step">
-                    <h2>Welcome to Your E-Commerce Project!</h2>
-                    <p>This guide provides a comprehensive walkthrough for setting up, customizing, and deploying your e-commerce application. The project is divided into three core components:</p>
-                    <ul>
-                        <li><strong>Backend API Server:</strong> The engine of your application, handling data and logic.</li>
-                        <li><strong>Customer Storefront:</strong> The beautiful, user-facing shop where customers browse and purchase.</li>
-                        <li><strong>Admin Dashboard:</strong> The control panel for managing products, orders, and customers.</li>
-                    </ul>
-                    <p>Follow these steps closely to ensure a smooth and successful setup.</p>
-                </div>
-            </section>
+      <main>
+        <section id="introduction">
+          <div class="step">
+            <h2>Welcome to Your E-Commerce Project!</h2>
+            <p>
+              This guide provides a comprehensive walkthrough for setting up,
+              customizing, and deploying your e-commerce application. The
+              project is divided into three core components:
+            </p>
+            <ul>
+              <li>
+                <strong>Backend API Server:</strong> The engine of your
+                application, handling data and logic.
+              </li>
+              <li>
+                <strong>Customer Storefront:</strong> The beautiful, user-facing
+                shop where customers browse and purchase.
+              </li>
+              <li>
+                <strong>Admin Dashboard:</strong> The control panel for managing
+                products, orders, and customers.
+              </li>
+            </ul>
+            <p>
+              Follow these steps closely to ensure a smooth and successful
+              setup.
+            </p>
+          </div>
+        </section>
 
-            <section id="github-setup">
-                <div class="step">
-                    <h3><span class="step-number">1</span>Mastering Your GitHub Repository</h3>
-                    <p>A well-organized GitHub repository is the foundation of your project. It's crucial for version control, collaboration, and deployment.</p>
+        <section id="github-setup">
+          <div class="step">
+            <h3>
+              <span class="step-number">1</span>Mastering Your GitHub Repository
+            </h3>
+            <p>
+              A well-organized GitHub repository is the foundation of your
+              project. It's crucial for version control, collaboration, and
+              deployment.
+            </p>
 
-               
+            <div class="note">
+              <h4>Why GitHub is Your Best Friend</h4>
+              <ul>
+                <li>
+                  <strong>Version Control:</strong> Safely track every change
+                  and revert to previous versions if needed.
+                </li>
+                <li>
+                  <strong>Collaboration:</strong> Work seamlessly with team
+                  members on the same codebase.
+                </li>
+                <li>
+                  <strong>Cloud Backup:</strong> Your code is securely stored
+                  and accessible from anywhere.
+                </li>
+                <li>
+                  <strong>Automated Deployment:</strong> Platforms like Render
+                  and Netlify deploy directly from GitHub.
+                </li>
+                <li>
+                  <strong>Professional Portfolio:</strong> A clean repository
+                  showcases your skills to potential employers.
+                </li>
+              </ul>
+            </div>
 
-                    <div class="note">
-                        <h4>Why GitHub is Your Best Friend</h4>
-                        <ul>
-                            <li><strong>Version Control:</strong> Safely track every change and revert to previous versions if needed.</li>
-                            <li><strong>Collaboration:</strong> Work seamlessly with team members on the same codebase.</li>
-                            <li><strong>Cloud Backup:</strong> Your code is securely stored and accessible from anywhere.</li>
-                            <li><strong>Automated Deployment:</strong> Platforms like Render and Netlify deploy directly from GitHub.</li>
-                            <li><strong>Professional Portfolio:</strong> A clean repository showcases your skills to potential employers.</li>
-                        </ul>
-                    </div>
+            <a href="github.html" target="_blank" class="btn"
+              >GitHub Repo Creation Guide</a
+            >
 
-                    <a href="github.html" target="_blank" class="btn">GitHub Repo Creation Guide</a>
+            <div class="warning">
+              <strong>Security First:</strong> Never, ever commit sensitive
+              information like API keys, database URLs, or passwords directly
+              into your code. Always use a <code>.gitignore</code> file to
+              exclude files like <code>.env</code> from being tracked.
+            </div>
+          </div>
+        </section>
 
-                    <div class="warning">
-                        <strong>Security First:</strong> Never, ever commit sensitive information like API keys, database URLs, or passwords directly into your code. Always use a <code>.gitignore</code> file to exclude files like <code>.env</code> from being tracked.
-                    </div>
-                </div>
-            </section>
+        <section id="page-customization">
+          <div class="step">
+            <h3>
+              <span class="step-number">2</span>Customizing Your Storefront
+              Pages
+            </h3>
+            <p>
+              Let's bring your brand to life! This section guides you through
+              customizing the key pages of your e-commerce site.
+            </p>
 
-            <section id="page-customization">
-                <div class="step">
-                    <h3><span class="step-number">2</span>Customizing Your Storefront Pages</h3>
-                    <p>Let's bring your brand to life! This section guides you through customizing the key pages of your e-commerce site.</p>
+            <div class="page-preview">
+              <h4>1. Shopping Home Page</h4>
+              <p>
+                This is the main storefront where customers get their first
+                impression and start browsing.
+              </p>
+              <img
+                src="/public/Screenshot0002.png"
+                alt="Shopping Home Page Preview"
+              />
 
-                    <div class="page-preview">
-                        <h4>1. Shopping Home Page</h4>
-                        <p>This is the main storefront where customers get their first impression and start browsing.</p>
-                        <img src="./public/Screenshot0002.png" alt="Shopping Home Page Preview">
-                        
-                        <div class="note">
-                            <h5>Customization Instructions:</h5>
-                            <ol>
-                                <li>
-                                    <strong>Update Your Logo:(In your frontend E-Commerce-Project)</strong>
-                                    <p>Simply replace the placeholder logo at <code>E-Commerce-Project/public/logo.png</code> with your own file. For best results, use a transparent PNG.</p>
-                                    <img src="./public/logoadd.png" alt="Logo change example" style="max-width: 300px; border: 1px solid #ddd; margin: 10px 0;">
-                                </li>
-                                <li>
-                                    <strong>Define Product Categories:(In your backend file)</strong>
-                                    <p>Easily edit your product categories in the shared configuration file located at: <code>E-Commerce-Backend/shared/Frontend/Shared.js</code></p>
-                                    <div class="code-block-wrapper">
-                                        <pre><code>// shared/categories.js
+              <div class="note">
+                <h5>Customization Instructions:</h5>
+                <ol>
+                  <li>
+                    <strong
+                      >Update Your Logo:(In your frontend
+                      E-Commerce-Project)</strong
+                    >
+                    <p>
+                      Simply replace the placeholder logo at
+                      <code>E-Commerce-Project/public/logo.png</code> with your
+                      own file. For best results, use a transparent PNG.
+                    </p>
+                    <img
+                      src="/public/logoadd.png"
+                      alt="Logo change example"
+                      style="
+                        max-width: 300px;
+                        border: 1px solid #ddd;
+                        margin: 10px 0;
+                      "
+                    />
+                  </li>
+                  <li>
+                    <strong
+                      >Define Product Categories:(In your backend file)</strong
+                    >
+                    <p>
+                      Easily edit your product categories in the shared
+                      configuration file located at:
+                      <code>E-Commerce-Backend/shared/Frontend/Shared.js</code>
+                    </p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// shared/categories.js
 module.exports = {
   PRODUCT_CATEGORIES: [
     "Man",
@@ -332,59 +415,103 @@ module.exports = {
     "Home Decor"    // Separate each with a comma
   ]
 };</code></pre>
-                                        <button class="copy-btn">Copy</button>
-                                    </div>
-                                    <p>After saving, restart your server, and the changes will automatically appear in the navigation menu.</p>
-                                </li>
-                            </ol>
-                        </div>
+                      <button class="copy-btn">Copy</button>
                     </div>
+                    <p>
+                      After saving, restart your server, and the changes will
+                      automatically appear in the navigation menu.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
 
-                    <div class="page-preview">
-                        <h4>2. Shopping Cart & Checkout</h4>
-                        <p>A seamless checkout process is vital. Here, customers review their cart and finalize their purchase.</p>
-                        <img src="./public/Screenshot0003.png" alt="Shopping Cart Page Preview">
-                        
-                        <div class="note">
-                            <h5>Configuring State-Based Delivery Costs(in your E-Commerce-Project)</h5>
-                            <p>You can set unique delivery fees for different states. All configuration is managed in one central file: <code>E-Commerce-Project/src/data/AddressData.js</code>.</p>
-                            <h6>Step 1: Set Delivery Costs</h6>
-                            <p>Open the file and modify the <code>deliveryCost</code> for each state object.</p>
-                             <div class="code-block-wrapper">
-                                <pre><code>// data/AddressData.js
+            <div class="page-preview">
+              <h4>2. Shopping Cart & Checkout</h4>
+              <p>
+                A seamless checkout process is vital. Here, customers review
+                their cart and finalize their purchase.
+              </p>
+              <img
+                src="/public/Screenshot0003.png"
+                alt="Shopping Cart Page Preview"
+              />
+
+              <div class="note">
+                <h5>
+                  Configuring State-Based Delivery Costs(in your
+                  E-Commerce-Project)
+                </h5>
+                <p>
+                  You can set unique delivery fees for different states. All
+                  configuration is managed in one central file:
+                  <code>E-Commerce-Project/src/data/AddressData.js</code>.
+                </p>
+                <h6>Step 1: Set Delivery Costs</h6>
+                <p>
+                  Open the file and modify the <code>deliveryCost</code> for
+                  each state object.
+                </p>
+                <div class="code-block-wrapper">
+                  <pre><code>// data/AddressData.js
 export const USStates = [
   { name: "Alabama", deliveryCost: 8 },
   { name: "Alaska", deliveryCost: 15 },
   // ... all other states
 ];</code></pre>
-                                <button class="copy-btn">Copy</button>
-                            </div>
-                            <img src="./public/addresdata.png" alt="State configuration example" style="max-width: 500px; border: 1px solid #ddd; margin: 10px 0;">
+                  <button class="copy-btn">Copy</button>
+                </div>
+                <img
+                  src="/public/addresdata.png"
+                  alt="State configuration example"
+                  style="
+                    max-width: 500px;
+                    border: 1px solid #ddd;
+                    margin: 10px 0;
+                  "
+                />
 
-                            <h6>Step 2: How It Works</h6>
-                            <p>The system is designed to update costs automatically. When a user selects a state from the checkout form, the corresponding delivery fee is instantly fetched from <code>AddressData.js</code> and added to the order total.</p>
-                            
-                            <h6>Step 3: Testing Your Configuration</h6>
-                            <p>To ensure everything works correctly:</p>
-                            <ol>
-                                <li>Add a product to your cart and proceed to checkout.</li>
-                                <li>Select various states from the address form dropdown.</li>
-                                <li>Verify that the "Delivery Cost" in the order summary updates accurately for each state.</li>
-                            </ol>
-                        </div>
-                    </div>
-                    
-                    <div class="page-preview">
-                        <h4>3. About & Contact Pages</h4>
-                        <p>Build trust and provide support through well-crafted informational pages.</p>
-                        <img src="./public/Screenshot0001.png" alt="Contact and About Page Preview">
+                <h6>Step 2: How It Works</h6>
+                <p>
+                  The system is designed to update costs automatically. When a
+                  user selects a state from the checkout form, the corresponding
+                  delivery fee is instantly fetched from
+                  <code>AddressData.js</code> and added to the order total.
+                </p>
 
-                        <div class="note">
-                            <h5>Editing Page Content (in your E-Commerce-Project)</h5>
-                             <h6>1. Update Contact Information</h6>
-                             <p>Modify contact details in <code>E-Commerce-Project/src/data/Abouttt/Contact.ts</code>:</p>
-                             <div class="code-block-wrapper">
-                                <pre><code>// E-Commerce-Project/src/data/Abouttt/Contact.ts
+                <h6>Step 3: Testing Your Configuration</h6>
+                <p>To ensure everything works correctly:</p>
+                <ol>
+                  <li>Add a product to your cart and proceed to checkout.</li>
+                  <li>Select various states from the address form dropdown.</li>
+                  <li>
+                    Verify that the "Delivery Cost" in the order summary updates
+                    accurately for each state.
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="page-preview">
+              <h4>3. About & Contact Pages</h4>
+              <p>
+                Build trust and provide support through well-crafted
+                informational pages.
+              </p>
+              <img
+                src="/public/Screenshot0001.png"
+                alt="Contact and About Page Preview"
+              />
+
+              <div class="note">
+                <h5>Editing Page Content (in your E-Commerce-Project)</h5>
+                <h6>1. Update Contact Information</h6>
+                <p>
+                  Modify contact details in
+                  <code>E-Commerce-Project/src/data/Abouttt/Contact.ts</code>:
+                </p>
+                <div class="code-block-wrapper">
+                  <pre><code>// E-Commerce-Project/src/data/Abouttt/Contact.ts
 export const contactInfo = {
   email: {
     icon: &lt;Mail className="w-5 h-5" /&gt;,
@@ -397,13 +524,16 @@ export const contactInfo = {
     lines: ["+1 (555) 123-4567"]
   }
 };</code></pre>
-                                <button class="copy-btn">Copy</button>
-                            </div>
+                  <button class="copy-btn">Copy</button>
+                </div>
 
-                             <h6>2. Manage FAQ Content</h6>
-                             <p>Add or edit questions and answers in <code>E-Commerce-Project/src/data/Abouttt/Faqs.ts</code>:</p>
-                             <div class="code-block-wrapper">
-                                <pre><code>// E-Commerce-Project/src/data/Abouttt/Faqs.ts
+                <h6>2. Manage FAQ Content</h6>
+                <p>
+                  Add or edit questions and answers in
+                  <code>E-Commerce-Project/src/data/Abouttt/Faqs.ts</code>:
+                </p>
+                <div class="code-block-wrapper">
+                  <pre><code>// E-Commerce-Project/src/data/Abouttt/Faqs.ts
 export const faqs = [
   {
     question: "How long does shipping take?",
@@ -411,76 +541,112 @@ export const faqs = [
   },
   // Add more Q&A pairs here
 ];</code></pre>
-                                <button class="copy-btn">Copy</button>
-                            </div>
-                        </div>
-                    </div>
+                  <button class="copy-btn">Copy</button>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <section id="deployment">
-                <div class="step">
-                    <h3><span class="step-number">3</span>Go Live! Deployment Guides</h3>
-                    <p>It's time to share your project with the world. Deploying involves pushing your code to a live server. We recommend these modern hosting platforms.</p>
+        <section id="deployment">
+          <div class="step">
+            <h3>
+              <span class="step-number">3</span>Go Live! Deployment Guides
+            </h3>
+            <p>
+              It's time to share your project with the world. Deploying involves
+              pushing your code to a live server. We recommend these modern
+              hosting platforms.
+            </p>
 
-                    <div class="resource-card">
-                        <h4>Backend Deployment (Render)</h4>
-                        <p>Deploy your Node.js API server. These platforms simplify server management, database connections, and scaling.</p>
-                        <a href="backend.html" class="btn">View Backend Deployment Docs</a>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <h4>Frontend Deployment (Netlify)</h4>
-                        <p>Deploy your customer storefront and admin dashboard. These platforms offer seamless GitHub integration, global CDNs, and automatic builds.</p>
-                        <a href="frontendsetup.html" class="btn">View Frontend Deployment Docs</a>
-                    </div>
+            <div class="resource-card">
+              <h4>Backend Deployment (Render)</h4>
+              <p>
+                Deploy your Node.js API server. These platforms simplify server
+                management, database connections, and scaling.
+              </p>
+              <a href="backend.html" class="btn"
+                >View Backend Deployment Docs</a
+              >
+            </div>
 
-                    <div class="warning">
-                        <h4>Pre-Deployment Checklist</h4>
-                        <p>Before you deploy, ensure you've completed these critical steps:</p>
-                        <ul>
-                            <li><strong>Thorough Local Testing:</strong> Confirm every feature works perfectly on your local machine.</li>
-                            <li><strong>Environment Variables:</strong> Set up production environment variables (especially database URLs and API keys) on your hosting platform.</li>
-                            <li><strong>Production Database:</strong> Configure and connect to your live database service.</li>
-                            <li><strong>Final Code Review:</strong> Push all your latest, stable code to your main branch on GitHub.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
+            <div class="resource-card">
+              <h4>Frontend Deployment (Netlify)</h4>
+              <p>
+                Deploy your customer storefront and admin dashboard. These
+                platforms offer seamless GitHub integration, global CDNs, and
+                automatic builds.
+              </p>
+              <a href="frontendsetup.html" class="btn"
+                >View Frontend Deployment Docs</a
+              >
+            </div>
 
-        <footer>
-            <p>Documentation last updated on <span id="current-date"></span>.</p>
-            <p>&copy; 2025 E-Commerce Project Team. All Rights Reserved.</p>
-        </footer>
+            <div class="warning">
+              <h4>Pre-Deployment Checklist</h4>
+              <p>
+                Before you deploy, ensure you've completed these critical steps:
+              </p>
+              <ul>
+                <li>
+                  <strong>Thorough Local Testing:</strong> Confirm every feature
+                  works perfectly on your local machine.
+                </li>
+                <li>
+                  <strong>Environment Variables:</strong> Set up production
+                  environment variables (especially database URLs and API keys)
+                  on your hosting platform.
+                </li>
+                <li>
+                  <strong>Production Database:</strong> Configure and connect to
+                  your live database service.
+                </li>
+                <li>
+                  <strong>Final Code Review:</strong> Push all your latest,
+                  stable code to your main branch on GitHub.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Documentation last updated on <span id="current-date"></span>.</p>
+        <p>&copy; 2025 E-Commerce Project Team. All Rights Reserved.</p>
+      </footer>
     </div>
 
     <script>
-        // --- Dynamic Date for Footer ---
-        document.getElementById("current-date").textContent = new Date().toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
+      // --- Dynamic Date for Footer ---
+      document.getElementById("current-date").textContent =
+        new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
         });
 
-        // --- Copy to Clipboard Functionality for Code Blocks ---
-        document.querySelectorAll('.copy-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const pre = button.previousElementSibling;
-                const code = pre.querySelector('code').innerText;
-                
-                navigator.clipboard.writeText(code).then(() => {
-                    button.innerText = 'Copied!';
-                    button.classList.add('copied');
-                    setTimeout(() => {
-                        button.innerText = 'Copy';
-                        button.classList.remove('copied');
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
-                });
+      // --- Copy to Clipboard Functionality for Code Blocks ---
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const pre = button.previousElementSibling;
+          const code = pre.querySelector("code").innerText;
+
+          navigator.clipboard
+            .writeText(code)
+            .then(() => {
+              button.innerText = "Copied!";
+              button.classList.add("copied");
+              setTimeout(() => {
+                button.innerText = "Copy";
+                button.classList.remove("copied");
+              }, 2000);
+            })
+            .catch((err) => {
+              console.error("Failed to copy text: ", err);
             });
         });
+      });
     </script>
-</body>
+  </body>
 </html>
