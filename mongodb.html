@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Atlas Setup Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #13AA52;
+        }
+        h1 {
+            border-bottom: 2px solid #13AA52;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background-color: #e7f4e4;
+            border-left: 4px solid #13AA52;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .steps {
+            counter-reset: step-counter;
+        }
+        .step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+        }
+        .step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #13AA52;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .image-container img {
+            flex: 1 1 300px;
+        }
+        .remember-box {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .step {
+                padding-left: 40px;
+            }
+            .step:before {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                font-size: 0.8em;
+            }
+            pre {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .step {
+                padding-left: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>MongoDB Atlas Setup Guide</h1>
+    
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>MongoDB Atlas is a fully-managed cloud database service that provides all the features of MongoDB without the operational heavy lifting. This guide will walk you through creating an account and setting up your first cluster.</p>
+        
+        <div class="note">
+            <strong>Note:</strong> MongoDB Atlas offers a free tier (M0) that's perfect for learning and small projects. This guide will focus on setting up a free cluster.
+        </div>
+    </section>
+    
+    <section id="account-creation">
+        <h2>Creating a MongoDB Atlas Account</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Visit the MongoDB Atlas Website</h3>
+                <p>Go to the <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="noopener noreferrer">MongoDB Atlas homepage</a>.</p>
+                <p><img src="./public/Screenshot1.png" alt="MongoDB Atlas homepage"></p>
+            </div>
+            
+            <div class="step">
+                <h3>Start the Registration Process</h3>
+                <p>Click on the "Get started" button in the top right corner.</p>
+            </div>
+            
+            <div class="step">
+                <h3>Fill in the Registration Form</h3>
+                <p>Complete the registration form with your details:</p>
+                <ul>
+                    <li>First and last name</li>
+                    <li>Email address</li>
+                    <li>Password (must be at least 8 characters)</li>
+                </ul>
+                <p>Check the box to agree to the Terms of Service and Privacy Policy.</p>
+                <p><img src="./public/Screenshot2.png" alt="Registration form"></p>
+            </div>
+            
+            <div class="step">
+                <h3>Verify Your Email</h3>
+                <p>After submitting the form, MongoDB will send a verification email to the address you provided.</p>
+                <p>Click the verification link in the email to complete the registration process.</p>
+            </div>
+            
+            <div class="step">
+                <h3>Complete Your Profile</h3>
+                <p>After verification, you'll be asked to complete your profile:</p>
+                <ul>
+                    <li>Company name (optional)</li>
+                    <li>Job title (optional)</li>
+                    <li>Country</li>
+                    <li>Phone number (optional)</li>
+                </ul>
+                <p>Click "Finish" to proceed.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cluster-creation">
+        <h2>Creating Your First Cluster</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Access the Atlas Dashboard</h3>
+                <p>After completing your profile, you'll be redirected to the MongoDB Atlas dashboard.</p>
+                <p>Click on "Build a Cluster" or "Create Cluster" button to start the cluster creation process.</p>
+                <p><img src="./public/Screenshot3.png" alt="Build a Cluster button"></p>
+            </div>
+            
+            <div class="step">
+                <h3>Choose a Cloud Provider and Region</h3>
+                <p>Select your preferred cloud provider (AWS, Google Cloud, or Azure) and region:</p>
+                <ul>
+                    <li>For the free tier (M0), only certain regions are available</li>
+                    <li>Choose a region closest to your location for better performance</li>
+                </ul>
+                <p><img src="./public/Screenshot4.png" alt="Cloud provider and region selection"></p>
+                
+                <div class="note">
+                    <strong>Tip:</strong> The free tier is labeled as "FREE TIER AVAILABLE" in the cluster tier selection.
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3>Select Cluster Tier</h3>
+                <p>Choose the cluster tier:</p>
+                <ul>
+                    <li>For learning and small projects, select "M0 Sandbox" (free)</li>
+                    <li>This provides 512 MB storage and shared RAM</li>
+                </ul>
+                
+                <div class="warning">
+                    <strong>Warning:</strong> Higher tiers are not free and will incur costs. Be careful when selecting other options.
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3>Configure Additional Settings</h3>
+                <p>Leave the default settings for:</p>
+                <ul>
+                    <li>Cluster Name (or give it a meaningful name)</li>
+                    <li>MongoDB Version (latest stable version recommended)</li>
+                </ul>
+                <p>For the free tier, additional configuration options are limited.</p>
+            </div>
+            
+            <div class="step">
+                <h3>Create Cluster</h3>
+                <p>Click the "Create Cluster" button at the bottom of the page.</p>
+                <p>The cluster creation process will begin, which typically takes 5-10 minutes.</p>
+                
+                <div class="note">
+                    <strong>Note:</strong> You'll see a progress indicator while your cluster is being created. You can proceed with other setup steps while waiting.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="post-creation">
+        <h2>Post-Creation Setup</h2>
+        
+        <div class="steps">
+            <div class="step">
+                <h3>Set Up Database Access</h3>
+                <p>While your cluster is being created, set up database access:</p>
+                <ol>
+                    <li>Navigate to "Database Access" under the "Security" section</li>
+                    <li>Click "Add New Database User"</li>
+                    <li>Choose authentication method (Password recommended)</li>
+                    <li>Enter a username and password</li>
+                    <li>For "User Privileges", select "Atlas admin" for full access</li>
+                    <li>Click "Add User"</li>
+                </ol>
+                <p><img src="./public/Screenshot7.png" alt="Database user creation"></p>
+                
+                <div class="warning">
+                    <strong>Security Tip:</strong> Store your password securely. You'll need it to connect to your database.
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3>Configure Network Access</h3>
+                <p>To connect to your cluster, you need to whitelist IP addresses:</p>
+                <ol>
+                    <li>Navigate to "Network Access" under the "Security" section</li>
+                    <li>Click "Add IP Address"</li>
+                    <li>For development, you can add your current IP address by clicking "Add Current IP Address"</li>
+                    <li>Alternatively, you can allow access from anywhere (not recommended for production) by entering <code>0.0.0.0/0</code></li>
+                    <li>Click "Confirm"</li>
+                </ol>
+                <div class="image-container">
+                    <img src="./public/Screenshot5.png" alt="Network access configuration">
+                    <img src="./public/Screenshot6.png" alt="Network access configuration">
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3>Connect to Your Cluster</h3>
+                <p>Once your cluster is ready (status will show as "Active"):</p>
+                <ol>
+                    <li>Click "Connect" on your cluster dashboard</li>
+                    <li>Choose a connection method:
+                        <ul>
+                            <li>Connect with the MongoDB Shell</li>
+                            <li>Connect your application (with drivers)</li>
+                            <li>Connect using MongoDB Compass (GUI tool)</li>
+                        </ul>
+                    </li>
+                    <li>Follow the instructions for your chosen method</li>
+                </ol>
+                <div class="image-container">
+                    <img src="./public/Screenshot9.png" alt="Connect to cluster showing credentials and connection string">
+                    <img src="./public/Screenshot10.png" alt="Connect to cluster showing credentials and connection string">
+                </div>
+                
+                <div class="warning">
+                    <strong>Important Security Note:</strong>
+                    <ul>
+                        <li>The username and password shown in the connection dialog are the credentials you created earlier</li>
+                        <li>Take a screenshot or note them down securely as they won't be shown again in plain text</li>
+                        <li>If you forget your password, you'll need to create a new database user</li>
+                    </ul>
+                </div>
+                
+                <div class="note">
+                    <strong>Connection String Instructions:</strong>
+                    <ol>
+                        <li>Copy the entire connection string provided (similar to the example below)</li>
+                        <li>This connection string will be needed in your application's environment variables or configuration</li>
+                    </ol>
+                    <pre>mongodb+srv://username:password@cluster0.mongodb.net/test?retryWrites=true&w=majority</pre>
+                    
+                    <p><img src="./public/Screenshot8.png" alt="Connection string highlighted in MongoDB Atlas"></p>
+                    
+                    <strong>For Environment Variables:</strong>
+                    <p>Typically you'll add this to your <code>.env</code> file as:</p>
+                    <pre>MONGODB_URI=mongodb+srv://username:password@cluster0.mongodb.net/test?retryWrites=true&w=majority</pre>
+                    
+                    <p>Or in your application configuration:</p>
+                    <pre>// Node.js example
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});</pre>
+                </div>
+                
+                <div class="warning">
+                    <strong>Security Best Practices:</strong>
+                    <ul>
+                        <li>Never commit your connection string directly in source code</li>
+                        <li>Always use environment variables for sensitive credentials</li>
+                        <li>Add <code>.env</code> to your <code>.gitignore</code> file</li>
+                        <li>Consider rotating your database password periodically</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="remember-box">
+        <h2>Remember</h2>
+        <h3>These two things you need for server setup:</h3>
+        <div class="image-container">
+            <img src="./public/Screenshot8.png" alt="Connection string">
+            <img src="./public/Screenshot11.png" alt="Database credentials">
+        </div>
+    </div>
+    
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        
+        <h3>Common Issues</h3>
+        <ul>
+            <li>
+                <strong>Connection failed:</strong> Verify your IP is whitelisted and credentials are correct
+            </li>
+            <li>
+                <strong>Cluster creation stuck:</strong> Wait a few more minutes or try creating a new cluster
+            </li>
+            <li>
+                <strong>Authentication failed:</strong> Double-check your username and password
+            </li>
+        </ul>
+        
+        <h3>Getting Help</h3>
+        <p>If you encounter issues, consult these resources:</p>
+        <ul>
+            <li><a href="https://docs.atlas.mongodb.com/" target="_blank" rel="noopener noreferrer">MongoDB Atlas Documentation</a></li>
+            <li><a href="https://www.mongodb.com/community" target="_blank" rel="noopener noreferrer">MongoDB Community Forums</a></li>
+            <li><a href="https://stackoverflow.com/questions/tagged/mongodb" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
+        </ul>
+    </section>
+    
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>You've successfully created a MongoDB Atlas account and set up your first cluster. You can now start using your cloud database for your applications.</p>
+        
+        <div class="note">
+            <strong>Next Steps:</strong>
+            <ul>
+                <li>Explore the MongoDB Atlas dashboard features</li>
+                <li>Import sample data to experiment with</li>
+                <li>Connect your application using the appropriate driver</li>
+                <li>Learn about MongoDB's document model and query language</li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Documentation last updated: <span id="current-date"></span></p>
+    </footer>
+    
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </script>
+</body>
+</html>

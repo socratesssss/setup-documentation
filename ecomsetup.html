@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Project Data Modification Guide</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    h1 {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #c0392b;
+    }
+    pre {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+    .note {
+      background-color: #e8f4fc;
+      border-left: 4px solid #3498db;
+      padding: 10px 15px;
+      margin: 15px 0;
+    }
+    .warning {
+      background-color: #fde8e8;
+      border-left: 4px solid #e74c3c;
+      padding: 10px 15px;
+      margin: 15px 0;
+    }
+    .success {
+      background-color: #e8f8ef;
+      border-left: 4px solid #2ecc71;
+      padding: 10px 15px;
+      margin: 15px 0;
+    }
+    .step {
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .step-number {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .file-path {
+      background-color: #f0f0f0;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>E-Commerce Project Data Modification Guide</h1>
+
+  <!-- CONTACT + FAQ SECTION -->
+  <section id="contact-faq">
+    <h2>Modifying Contact and FAQ Data</h2>
+
+    <p>
+      This section explains how to modify contact information and FAQ content in your project.
+      You will work with two files:
+    </p>
+    <ul>
+      <li><span class="file-path">src/data/Contact.tsx</span> - Store contact information</li>
+      <li><span class="file-path">src/data/Faqs.ts</span> - Frequently asked questions</li>
+    </ul>
+
+    <h3>Contact Information</h3>
+    <div class="step">
+      <h3><span class="step-number">1</span>Open Contact.tsx</h3>
+      <p>Navigate to <span class="file-path">E-Commerce-Project/src/data/Contact.tsx</span> and open it.</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">2</span>Structure</h3>
+      <pre>
+export const contactInfo = {
+  email: {
+    icon: &lt;Mail className="w-5 h-5 text-[#0284c7]" /&gt;,
+    title: "Email",
+    lines: ["support@yourstore.com", "sales@yourstore.com"]
+  },
+  // ... other sections
+};</pre>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">3</span>Update Details</h3>
+      <pre>
+email: {
+  lines: ["help@newdomain.com", "orders@newdomain.com"]
+},
+phone: {
+  lines: ["+1 (555) 987-6543", "Mon - Fri: 8am - 7pm"]
+},</pre>
+    </div>
+
+ 
+
+    <h3>FAQ Content</h3>
+    <div class="step">
+      <h3><span class="step-number">1</span>Open Faqs.ts</h3>
+      <pre>
+export const faqs = [
+  {
+    question: "How long does shipping take?",
+    answer: "Most orders ship within 1-2 business days..."
+  }
+];</pre>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">2</span>Update or Add FAQs</h3>
+      <pre>
+{
+  question: "Do you offer gift wrapping?",
+  answer: "Yes, we offer complimentary gift wrapping."
+}</pre>
+    </div>
+  </section>
+
+  <!-- STATE DATA SECTION -->
+  <section id="state-data">
+    <h2>Modifying State Data (AddressData.ts)</h2>
+
+    <div class="step">
+      <h3><span class="step-number">1</span>Locate AddressData.ts</h3>
+      <p>Find it in <span class="file-path">E-Commerce-Project/src/data</span>.</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">2</span>Structure</h3>
+      <pre>
+export const USStates = [
+  { name: "Alabama", deliveryCost: 8 },
+  { name: "Alaska", deliveryCost: 15 },
+];</pre>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">3</span>Edit Name</h3>
+      <pre>
+{ name: "California", deliveryCost: 12 },
+// or add alternative
+{ name: "Cali", deliveryCost: 12 }</pre>
+      <div class="warning">
+        Changing names may affect existing data. Prefer adding new entries.
+      </div>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">4</span>Edit Delivery Cost</h3>
+      <pre>
+{ name: "Texas", deliveryCost: 12 }</pre>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-number">5</span>Add New State</h3>
+      <pre>
+{ name: "New Territory", deliveryCost: 14 }</pre>
+    </div>
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section id="best-practices">
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Keep data up-to-date</li>
+      <li>Test after every modification</li>
+      <li>Backup files before big changes</li>
+      <li>Use consistent formatting</li>
+    </ul>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section id="troubleshooting">
+    <h2>Troubleshooting</h2>
+    <div class="warning">
+      <ul>
+        <li><strong>Changes not showing:</strong> Restart dev server, clear cache</li>
+        <li><strong>Errors:</strong> Check commas, brackets, and quotes</li>
+        <li><strong>Icons missing:</strong> Verify with Lucide docs</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Documentation last updated: <span id="current-date"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById('current-date').textContent =
+      new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+  </script>
+</body>
+</html>

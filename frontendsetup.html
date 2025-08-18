@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netlify Deployment Guide</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+      h1 {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      code {
+        background-color: #f0f0f0;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+        color: #c0392b;
+      }
+      pre {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      .note {
+        background-color: #e8f4fc;
+        border-left: 4px solid #3498db;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .warning {
+        background-color: #fde8e8;
+        border-left: 4px solid #e74c3c;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .success {
+        background-color: #e8f8ef;
+        border-left: 4px solid #2ecc71;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .step {
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .step-number {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .tab {
+        display: inline-block;
+        margin-left: 40px;
+      }
+      .image-container {
+        margin: 15px 0;
+        text-align: center;
+      }
+      .image-container img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Netlify Deployment Guide</h1>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        This guide explains how to deploy your Next.js e-commerce application to
+        Netlify, both manually and via GitHub integration, including how to set
+        up environment variables.
+      </p>
+    </section>
+
+    <section id="manual-deploy">
+      <h2>Manual Deployment (Without GitHub)</h2>
+
+      <div class="step">
+        <h3><span class="step-number">2</span>Create a Netlify Account</h3>
+        <p>
+          If you don't have one, sign up at
+          <a href="https://app.netlify.com/" target="_blank"
+            >https://app.netlify.com/</a
+          >
+        </p>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">3</span>Manual Deployment</h3>
+        <ol>
+          <li>Go to Netlify dashboard</li>
+          <li>Click "Add a new project" in the top navigation</li>
+          <li>Click "Deploy menually"</li>
+          <li>Drag and drop your project folder into the deployment area</li>
+          <li>Netlify will automatically detect and deploy your Next.js app</li>
+        </ol>
+        <div class="image-container">
+          <img
+            src="./public/Screenshot003.png"
+            alt="Netlify drag and drop interface"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="env-variables">
+      <h2>Environment Variables Configuration</h2>
+
+      <div class="step">
+        <h3>
+          <span class="step-number">1</span>Netlify Environment Variables Setup
+        </h3>
+        <ol>
+          <li>
+            Login to your
+            <a href="https://app.netlify.com/" target="_blank"
+              >Netlify dashboard</a
+            >
+          </li>
+          <li>Select your site from the list</li>
+          <li>
+            Navigate to: <strong>Site settings</strong> →
+            <strong>Build & deploy</strong> → <strong>Environment</strong>
+          </li>
+          <li>Click on <strong>"Edit variables"</strong> button</li>
+          <div class="image-container">
+            <img
+              src="./public/Screenshot004.png"
+              alt="Netlify environment variables location"
+              style="max-width: 600px"
+            />
+            <p>Netlify environment variables configuration page</p>
+          </div>
+          <li>Click <strong>"Add variable"</strong> to create new entries</li>
+          <div class="image-container">
+            <p>Adding new environment variables</p>
+          </div>
+        </ol>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">2</span>E-commerce App Variables</h3>
+        <p>For your Next.js e-commerce app, set these variables:</p>
+        <pre>
+            NEXT_PUBLIC_API_BASE_URL= http://Give-your-backend-api-link
+</pre
+        >
+        <div class="image-container">
+          <img
+            src="./public/Screenshot005.png"
+            alt="E-commerce app variables"
+            style="max-width: 600px"
+          />
+          <p>Example e-commerce app variables in Netlify</p>
+        </div>
+        <div class="note">
+          <strong>Note:</strong> All Next.js variables exposed to the browser
+          must be prefixed with <code>NEXT_PUBLIC_</code>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">3</span>Admin Dashboard Variables</h3>
+        <p>For your Vite React dashboard, set these variables:</p>
+        <pre>
+              VITE_API_BASE_URL = http://Give-your-backend-api-link
+              </pre
+        >
+        <div class="image-container">
+          <img
+            src="./public/Screenshot006.png"
+            alt="Dashboard variables"
+            style="max-width: 600px"
+          />
+          <p>Example dashboard variables in Netlify</p>
+        </div>
+        <div class="warning">
+          <strong>Important:</strong> Vite only exposes variables prefixed with
+          <code>VITE_</code> to the client-side code
+        </div>
+      </div>
+    </section>
+
+    <section id="domain-setup">
+      <h2>Custom Domain Setup (Optional)</h2>
+
+      <div class="step">
+        <h3><span class="step-number">1</span>Add Custom Domain</h3>
+        <ol>
+          <li>In Netlify, go to "Site settings" → "Domain management"</li>
+          <li>Click "Add custom domain"</li>
+          <li>Enter your domain name (e.g., www.yourstore.com)</li>
+          <li>Follow the DNS configuration instructions</li>
+        </ol>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">2</span>SSL Certificate</h3>
+        <p>Netlify provides free SSL certificates:</p>
+        <ol>
+          <li>Go to "Site settings" → "Domain management"</li>
+          <li>Click "Verify DNS configuration"</li>
+          <li>Netlify will automatically provision an SSL certificate</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+
+      <div class="warning">
+        <h3>Common Issues</h3>
+        <ul>
+          <li>
+            <strong>Environment variables not working:</strong>
+            <ul>
+              <li>Redeploy after adding variables</li>
+              <li>Ensure correct variable naming (case-sensitive)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Build failures:</strong>
+            <ul>
+              <li>Check build logs in Netlify</li>
+              <li>Ensure Node.js version matches your local environment</li>
+            </ul>
+          </li>
+          <li>
+            <strong>API connection issues:</strong>
+            <ul>
+              <li>Verify CORS settings on your backend</li>
+              <li>Check if API URL is correct</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="next-steps">
+      <h2>Next Steps</h2>
+      <ul>
+        <li>Set up continuous deployment for automatic updates</li>
+        <li>Configure branch deploys for testing</li>
+        <li>Implement analytics tracking</li>
+        <li>Set up form handling (if applicable)</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Documentation last updated: <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+      document.getElementById("current-date").textContent =
+        new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development Environment Setup Guide</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+      h1 {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      code {
+        background-color: #f0f0f0;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", Courier, monospace;
+        color: #c0392b;
+      }
+      pre {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      .note {
+        background-color: #e8f4fc;
+        border-left: 4px solid #3498db;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .warning {
+        background-color: #fde8e8;
+        border-left: 4px solid #e74c3c;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .success {
+        background-color: #e8f8ef;
+        border-left: 4px solid #2ecc71;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
+      .step {
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .step-number {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .image-container {
+        margin: 15px 0;
+        text-align: center;
+      }
+      .image-container img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #13aa52;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+      .btn-secondary {
+        background-color: #3498db;
+      }
+      .btn-tertiary {
+        background-color: #6c757d;
+      }
+      /* Previous CSS styles remain unchanged */
+      .video-recommendation {
+        background-color: #f8f9fa;
+        border-left: 4px solid #ff0000;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+      }
+      .video-container {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+      .video-thumbnail {
+        width: 120px;
+        height: 90px;
+        margin-right: 15px;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+      .video-info {
+        flex: 1;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+        pre {
+          font-size: 0.9em;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Previous content remains unchanged until GitHub section -->
+
+    <section id="github-intro">
+      <h2>GitHub Setup (First Step)</h2>
+
+      <div class="step">
+        <h3><span class="step-number">1</span>What is GitHub?</h3>
+        <p>
+          GitHub is a cloud-based platform for version control and collaboration
+          that lets you and others work together on projects from anywhere.
+        </p>
+
+        <div class="video-recommendation">
+          <h4>Recommended YouTube Tutorials:</h4>
+          <div class="video-container">
+            <img
+              src="https://i.ytimg.com/vi/w3jLJU7DT5E/mqdefault.jpg"
+              alt="GitHub Tutorial"
+              class="video-thumbnail"
+            />
+            <div class="video-info">
+              <strong>GitHub Tutorial - Beginner's Training Guide</strong><br />
+              <a
+                href="https://www.youtube.com/watch?v=w3jLJU7DT5E"
+                target="_blank"
+                >Watch on YouTube</a
+              >
+            </div>
+          </div>
+          <div class="video-container">
+            <img
+              src="https://i.ytimg.com/vi/RGOj5yH7evk/mqdefault.jpg"
+              alt="Git and GitHub Crash Course"
+              class="video-thumbnail"
+            />
+            <div class="video-info">
+              <strong>Git and GitHub for Beginners - Crash Course</strong><br />
+              <a
+                href="https://www.youtube.com/watch?v=RGOj5yH7evk"
+                target="_blank"
+                >Watch on YouTube</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Why you need GitHub:</strong>
+          <ul>
+            <li>Track and manage changes to your code</li>
+            <li>Collaborate with other developers</li>
+            <li>Deploy your projects to services like Render</li>
+            <li>Maintain backup copies of your work</li>
+            <li>Showcase your projects to potential employers</li>
+          </ul>
+        </div>
+
+        <div class="warning">
+          <strong>Before proceeding:</strong>
+          <ol>
+            <li>
+              Create a free GitHub account at
+              <a href="https://github.com/" target="_blank">github.com</a>
+            </li>
+            <li>
+              Install Git on your computer from
+              <a href="https://git-scm.com/" target="_blank">git-scm.com</a>
+            </li>
+            <li></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">2</span>Create Three Repositories</h3>
+        <p>
+          For this project, we recommend creating three separate repositories:
+        </p>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 15px 0">
+          <!-- Table content remains unchanged -->
+        </table>
+
+        <div class="video-recommendation">
+          <h4>Recommended YouTube Tutorials for Repository Setup:</h4>
+          <div class="video-container">
+            <img
+              src="https://i.ytimg.com/vi/USjZcfj8yxE/mqdefault.jpg"
+              alt="GitHub Repository Tutorial"
+              class="video-thumbnail"
+            />
+            <div class="video-info">
+              <strong>How to Create a GitHub Repository</strong><br />
+              <a
+                href="https://youtu.be/UiXzI9Ceox0?si=jZj14Lk92O4fJZcX"
+                target="_blank"
+                >Watch on YouTube</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3><span class="step-number">2</span>Create Three Repositories</h3>
+          <p>
+            For this project, we recommend creating three separate repositories:
+          </p>
+
+          <!-- Repository table remains unchanged -->
+
+          <h4>How to Create a Repository on GitHub:</h4>
+          <ol>
+            <li>
+              Go to
+              <a href="https://github.com" target="_blank">github.com</a> and
+              log in to your account
+            </li>
+            <li>
+              Click the "+" icon in the top right corner and select "New
+              repository"
+              <div class="image-container">
+                <img
+                  src="https://docs.github.com/assets/cb-11427/images/help/repository/repo-create.png"
+                  alt="GitHub new repository button"
+                  style="max-width: 400px"
+                />
+              </div>
+            </li>
+            <li>
+              On the new repository page:
+              <ul>
+                <li>Enter your repository name (e.g., "ecommerce-backend")</li>
+                <li>Add a description (optional but recommended)</li>
+                <li>
+                  Choose between Public (visible to everyone) or Private (only
+                  visible to you and collaborators)
+                </li>
+                <li>Check "Add a README file" (recommended)</li>
+                <li>
+                  Add .gitignore template: Select "Node" for backend
+                  repositories
+                </li>
+                <li>
+                  Choose a license if needed (MIT License is common for open
+                  source)
+                </li>
+              </ul>
+              <div class="image-container">
+                <img
+                  src="https://docs.github.com/assets/cb-20363/images/help/repository/create-repository-owner.png"
+                  alt="GitHub repository creation form"
+                  style="max-width: 600px"
+                />
+              </div>
+            </li>
+            <li>Click "Create repository"</li>
+          </ol>
+
+          <div class="note">
+            <strong>Initial Setup for Each Repository:</strong>
+            <ol>
+              <li>
+                Clone the repository to your local machine:
+                <pre>
+git clone https://github.com/your-username/repository-name.git
+cd repository-name</pre
+                >
+              </li>
+              <li>
+                Configure your .gitignore file (for backend):
+                <pre>
+# .gitignore content for Node.js project
+node_modules/
+.env
+.DS_Store
+npm-debug.log*</pre
+                >
+              </li>
+              <li>
+                Make your first commit:
+                <pre>
+git add .
+git commit -m "Initial project setup"
+git push origin main</pre
+                >
+              </li>
+            </ol>
+          </div>
+
+          <div class="warning">
+            <strong>Important Notes:</strong>
+            <ul>
+              <li>
+                Never commit sensitive information (like .env files or API keys)
+                to GitHub
+              </li>
+              <li>Make regular commits with descriptive messages</li>
+              <li>
+                Create different branches for new features (git checkout -b
+                feature-name)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <a
+          href="https://docs.github.com/en/get-started/quickstart/create-a-repo"
+          target="_blank"
+          class="btn btn-tertiary"
+          >GitHub Repository Documentation</a
+        >
+      </div>
+    </section>
+
+    
+  </body>
+</html>

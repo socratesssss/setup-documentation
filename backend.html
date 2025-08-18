@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development Environment Setup Guide</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+            color: #c0392b;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        .note {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fde8e8;
+            border-left: 4px solid #e74c3c;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background-color: #e8f8ef;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .step {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #13aa52;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .btn-secondary {
+            background-color: #3498db;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            pre {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Development Environment Setup Guide (E-Commerce-Backend)</h1>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+            This guide will walk you through setting up your development environment,
+            configuring environment variables, and registering an admin user for your application.
+            It also includes deployment instructions for Render and links to additional resources.
+        </p>
+    </section>
+
+    <section id="env-setup">
+        <h2>Setting Up Environment Variables</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span>Create a .env File</h3>
+            <p>
+                In your project's root directory, create a new file named
+                <code>.env</code>
+            </p>
+            <div class="note">
+                <strong>Note:</strong> The <code>.env</code> file should never be
+                committed to version control. Make sure to add it to your
+                <code>.gitignore</code> file.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span>Configure Environment Variables</h3>
+            <p>Add the following configuration to your <code>.env</code> file:</p>
+            <pre>
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=mongodb+srv://your_username:your_password@cluster0.xxxxx.mongodb.net/your_database?retryWrites=true&w=majority
+DB_PASSWORD=your_mongodb_password
+JWT_SECRET=secretkey</pre>
+
+            <div class="warning">
+                <strong>Important Configuration Instructions:</strong>
+                <ul>
+                    <li>
+                        <strong>MONGODB_URI:</strong> Replace with your actual MongoDB
+                        Atlas connection string
+                        <div class="note">
+                            <p>You can find your connection string in MongoDB Atlas:</p>
+                            <ol>
+                                <li>Go to your Cluster dashboard</li>
+                                <li>Click "Connect" button</li>
+                                <li>Select "Connect your application"</li>
+                                <li>Copy the connection string</li>
+                            </ol>
+                            <div class="image-container">
+                                <img
+                                    src="./public/Screenshot8.png"
+                                    alt="MongoDB Atlas connection string location"
+                                    style="max-width: 600px"
+                                />
+                                <p class="image-caption">
+                                    Example: Where to find your MongoDB connection string in Atlas
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>DB_PASSWORD:</strong> Use your actual MongoDB user
+                        password (not your Atlas account password)
+                        <div class="note">
+                            <p>
+                                This is the password you created when setting up database
+                                access:
+                            </p>
+                            <div class="image-container">
+                                <img
+                                    src="./public/Screenshot11.png"
+                                    alt="MongoDB user password setup"
+                                    style="max-width: 600px"
+                                />
+                                <p class="image-caption">
+                                    Example: Database user password setup in MongoDB Atlas
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Keep this file secure and never share it publicly</li>
+                    <li>These values are examples - use your actual credentials</li>
+                </ul>
+            </div>
+
+            <div class="note">
+                <strong>Complete Example .env File:</strong>
+                <pre>
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=mongodb+srv://devuser:SecurePass123@cluster0.0aoioxg.mongodb.net/myappdb?retryWrites=true&w=majority
+DB_PASSWORD=SecurePass123</pre>
+                <p>
+                    Note how the password appears in both MONGODB_URI and DB_PASSWORD in
+                    this example.
+                </p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span>Create a MongoDB Cluster (If You Don't Have One)</h3>
+            <p>
+                If you don't already have a MongoDB Atlas cluster set up, follow our
+                comprehensive guide:
+            </p>
+            <a href="mongodb.html" target="_blank" class="btn">View MongoDB Atlas Setup Guide</a>
+
+            <div class="note">
+                <strong>Key Requirements:</strong>
+                <ul>
+                    <li>Create a free M0 cluster (perfect for development)</li>
+                    <li>Set up a database user (different from your Atlas account)</li>
+                    <li>
+                        Whitelist your IP address (or allow access from anywhere for
+                        development)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>Important:</strong> You'll need these two things from MongoDB
+                Atlas for your server setup:
+                <div class="image-container">
+                    <img
+                        src="./public/Screenshot8.png"
+                        alt="Connection string"
+                        style="max-width: 400px"
+                    />
+                    <img
+                        src="./public/Screenshot11.png"
+                        alt="Database credentials"
+                        style="max-width: 400px"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span>Set Up Your Development Environment</h3>
+            
+            <h4>Open Project in VS Code</h4>
+            <ol>
+                <li>Launch Visual Studio Code</li>
+                <li>Click "File" → "Open Folder"</li>
+                <li>Select your backend project folder</li>
+            </ol>
+            
+            <h4>Install Node.js (If Not Already Installed)</h4>
+            <ol>
+                <li>Check if Node.js is installed by running in terminal:
+                    <pre>node -v</pre>
+                </li>
+                <li>If not installed, download and install from:
+                    <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> (LTS version recommended)
+                </li>
+            </ol>
+            
+            <h4>Install Dependencies</h4>
+            <ol>
+                <li>Open the terminal in VS Code (Ctrl+` or Terminal → New Terminal)</li>
+                <li>Run the following command to install all required packages:
+                    <pre>npm install</pre>
+                </li>
+                <li>Wait for all dependencies to be installed</li>
+            </ol>
+            
+            <div class="note">
+                <strong>Note:</strong> If you encounter any errors during installation:
+                <ul>
+                    <li>Make sure you have a stable internet connection</li>
+                    <li>Try running as administrator if you're on Windows</li>
+                    <li>Check the error message for specific package issues</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin-registration">
+        <h2>Registering an Admin User</h2>
+
+        <div class="step">
+            <h3><span class="step-number">1</span>Start Your Application</h3>
+            <p>Run your Node.js application with the configured environment variables:</p>
+            <pre>node Server.js</pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span>Register Admin User via API</h3>
+            <p>Send a POST request to the following endpoint to register an admin user:</p>
+            <p><strong>Endpoint:</strong> <code>http://localhost:5000/api/admin/register</code></p>
+            <p><strong>Method:</strong> POST</p>
+            <p><strong>Headers:</strong></p>
+            <pre>Content-Type: application/json</pre>
+            <p><strong>Request Body (JSON):</strong></p>
+            <pre>
+{
+  "userName": "admin",
+  "password": "admin",
+  "email": "admin@gmail.com"
+}</pre>
+            
+            <div class="warning">
+                <strong>Important Login Information:</strong>
+                <ul>
+                    <li>You will need this <strong>username and password</strong> to access the admin dashboard</li>
+                    <li>The <strong>email must be valid</strong> as it will be used for:
+                        <ul>
+                            <li>Password reset requests</li>
+                            <li>Account recovery</li>
+                            <li>Important system notifications</li>
+                            <li>Add the BACKEND_URL after backend deployment</li>
+                            <li>You will get EMAIL_PASS in your email setting passcode</li>
+                        </ul>
+                    </li>
+                    <li>For security reasons, change the default credentials after first login</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span>Making the Request</h3>
+            <p>You can make this request using Hoppscotch:</p>
+            <h4>Using Hoppscotch:</h4>
+            <ol>
+                <li>Open <a href="https://hoppscotch.io/" target="_blank">Hoppscotch</a> in your browser</li>
+                <li>Set the request method to POST</li>
+                <li>Enter the URL: <code>http://localhost:5000/api/admin/register</code></li>
+                <li>Go to the Headers tab and add: <code>Content-Type: application/json</code></li>
+                <li>Go to the Body tab, select "JSON", and paste the request body above</li>
+                <li>Click "Send"</li>
+            </ol>
+
+            <div class="image-container">
+                <img src="./public/Screenshot002.png" alt="Hoppscotch request example">
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span>Expected Response</h3>
+            <p>On successful registration, you should receive a response similar to:</p>
+            <pre>
+{
+  "message": "Admin created successfully",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "admin": {
+    "id": "68a0319b8774739f868b679a",
+    "userName": "YourUserName",
+    "email": "YourEmail@gmail.com"
+  }
+}</pre>
+
+            <div class="success">
+                <strong>Success!</strong> You've now:
+                <ul>
+                    <li>Set up your development environment</li>
+                    <li>Registered an admin user</li>
+                    <li>Can now login to the dashboard using the credentials you provided</li>
+                </ul>
+            </div>
+            
+            <div class="note">
+                <strong>After Registration:</strong>
+                <ol>
+                    <li>Access the admin dashboard at <code>http://localhost:5000/admin</code></li>
+                    <li>Use your registered username and password to login</li>
+                    <li>Change your default password immediately for security</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section id="render-deployment">
+        <h2>Deploying to Render</h2>
+        
+        <div class="step">
+            <h3><span class="step-number">1</span>Create a Render Account</h3>
+            <ol>
+                <li>Go to <a href="https://render.com/" target="_blank">Render.com</a></li>
+                <li>Sign up for a free account</li>
+                <li>Verify your email address</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">2</span>Create a New Web Service</h3>
+            <ol>
+                <li>From your Render dashboard, click "New" and select "Web Service"</li>
+                <li>Connect your GitHub/GitLab/Bitbucket account</li>
+                <li>Select your e-commerce backend repository</li>
+                <li>Choose the branch you want to deploy (usually main/master)</li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="./public/renderaddnew.png" alt="Render new web service">
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">3</span>Configure Your Web Service</h3>
+            <ol>
+                <li>Give your service a name (e.g., "ecommerce-backend")</li>
+                <li>Select "Node" as the runtime</li>
+                <li>Choose the region closest to your users</li>
+                <li>Select the free plan (or upgrade for production)</li>
+                <li>Set the build command: <code>npm install</code></li>
+                <li>Set the start command: <code>node Server.js</code></li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="./public/rendersetup.png" alt="Render service configuration">
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">4</span>Set Up Environment Variables in Render</h3>
+            <ol>
+                <li>In the Render dashboard, go to your web service</li>
+                <li>Click on "Environment" in the left sidebar</li>
+                <li>Click "Add Environment Variable"</li>
+                <li>Add each variable from your .env file one by one:
+                    <ul>
+                        <li>NODE_ENV</li>
+                        <li>PORT</li>
+                        <li>MONGODB_URI</li>
+                        <li>DB_PASSWORD</li>
+                        <li>JWT_SECRET</li>
+                        <li> DASHBOARD_URL</li>                      
+<li>BACKEND_URL</li>
+<li>EMAIL_USER</li>
+<li>EMAIL_PASS</li>
+
+                    </ul>
+                </li>
+               
+            </ol>
+            
+            <div class="note">
+                <strong>Important:</strong> For production, you should:
+                <ul>
+                    <li>Use a stronger JWT_SECRET</li>
+                    <li>Set NODE_ENV to "production"</li>
+                    <li>Consider using Render's secret files for sensitive data</li>
+                </ul>
+            </div>
+            
+            <div class="image-container">
+                <img src="./public/backendenv.png" alt="Render environment variables">
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3><span class="step-number">5</span>Deploy Your Application</h3>
+            <ol>
+                <li>Click "Create Web Service" at the bottom of the configuration page</li>
+                <li>Render will automatically:
+                    <ul>
+                        <li>Pull your code from GitHub</li>
+                        <li>Install dependencies</li>
+                        <li>Start your application</li>
+                    </ul>
+                </li>
+                <li>Monitor the logs to ensure successful deployment</li>
+                <li>Once deployed, you'll get a URL like: https://your-service-name.onrender.com</li>
+            </ol>
+            
+            <div class="success">
+                <strong>Deployment Complete!</strong> Your e-commerce backend is now live on Render.
+            </div>
+        </div>
+        
+     
+    </section>
+
+
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+
+        <div class="warning">
+            <h3>Common Issues</h3>
+            <ul>
+                <li>
+                    <strong>Connection refused:</strong> Make sure your MongoDB Atlas
+                    cluster is running and your IP is whitelisted
+                </li>
+                <li>
+                    <strong>Invalid credentials:</strong> Double-check your MongoDB URI
+                    and password in the .env file
+                </li>
+                <li>
+                    <strong>Port in use:</strong> If port 5000 is occupied, change the
+                    PORT value in your .env file
+                </li>
+                <li>
+                    <strong>Validation errors:</strong> Ensure your registration request
+                    includes all required fields (userName, password, email)
+                </li>
+                <li>
+                    <strong>Render deployment failures:</strong> Check build logs for npm errors
+                </li>
+                <li>
+                    <strong>Environment variables not working:</strong> Make sure they're
+                    spelled exactly the same in Render as in your code
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="image-storage">
+    <h2>Important Note About Image Storage</h2>
+    
+    <div class="warning">
+        <h3>Ephemeral Storage on Render</h3>
+        <p>When hosting your backend on Render's free tier, please be aware that:</p>
+        <ul>
+            <li>Any images uploaded and stored locally will <strong>disappear</strong> when:</li>
+            <ul>
+                <li>Your application redeploys</li>
+                <li>Render performs maintenance</li>
+                <li>After approximately 30 minutes of inactivity (on free tier)</li>
+            </ul>
+            <li>This is because Render uses <strong>ephemeral storage</strong> for free tier services</li>
+        </ul>
+        
+        <h3>Permanent Storage Solutions</h3>
+        <p>For permanent image storage, you need to integrate with a cloud storage provider:</p>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Recommended Cloud Storage Options</h4>
+            <ul>
+                <li><strong>Amazon S3</strong> (Most reliable, requires AWS account)</li>
+                <li><strong>Google Cloud Storage</strong> (GCP alternative)</li>
+                <li><strong>Cloudinary</strong> (Image-focused, free tier available)</li>
+                <li><strong>Firebase Storage</strong> (Easy integration with Firebase projects)</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Implementation Guide</h4>
+            <p>To implement cloud storage:</p>
+            <ol>
+                <li>Create an account with your chosen provider</li>
+                <li>Set up a storage bucket/container</li>
+                <li>Add required credentials to your <code>.env</code> file:
+                    <pre>
+# Example for AWS S3
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=your_region
+AWS_BUCKET_NAME=your_bucket_name</pre>
+                </li>
+                <li>Modify your image upload logic to save to cloud storage instead of local disk</li>
+                <li>Update your API to return cloud storage URLs instead of local paths</li>
+            </ol>
+            
+            <div class="note">
+                <strong>Note:</strong> We provide a detailed cloud storage integration guide in our advanced documentation.
+                <a href="#" class="btn btn-secondary">View Cloud Storage Guide</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>Documentation last updated: <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+        document.getElementById("current-date").textContent =
+            new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+    </script>
+</body>
+</html>
