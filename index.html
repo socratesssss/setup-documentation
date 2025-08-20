@@ -349,38 +349,83 @@
             </div>
           </div>
         </section>
-<section id="page-customization">
-  <div class="step">
-    <h3>
-      <span class="step-number">2</span>Customizing Your Storefront Pages
-    </h3>
-    <p>
-      Let's bring your brand to life! This section guides you through
-      customizing the key pages of your e-commerce site.
-    </p>
-
-    <!-- Browser Tab Customization -->
-    <div class="page-preview">
-      <h4>1. Browser Tab Customization(In your E-commerce-Project)</h4>
-      <p>
-        Make your store recognizable in browser tabs by setting a custom title and icon.
-      </p>
-      <img
-        src="public/Screenshot-title.png"
-        alt="Browser tab customization preview"
-      />
-
-      <div class="note">
-        <h5>Customization Instructions:</h5>
-        <ol>
-          <li>
-            <strong>Update Tab Title & Description:</strong>
+        <section id="install-dependencies">
+          <div class="step">
+            <h3>
+              <span class="step-number">2</span>Install Project Dependencies(All 3 file)
+            </h3>
             <p>
-              Edit the metadata in your layout file:
-              <code>src/app/layout.tsx</code>
+              Before running the project locally, you need to install all
+              required dependencies. This ensures your project has all the
+              packages it needs to function properly.
             </p>
-            <div class="code-block-wrapper">
-              <pre><code>// layout.tsx
+
+            <div class="note">
+              <h4>Installation Instructions:</h4>
+              <ol>
+                <li>
+                  <strong>Open your terminal</strong> in the project root
+                  directory.
+                </li>
+                <li>
+                  <strong>Run the following command:</strong>
+                  <div class="code-block-wrapper">
+                    <pre><code>npm install</code></pre>
+                    <button class="copy-btn">Copy</button>
+                  </div>
+                </li>
+                <li>
+                  Once completed, you can start the project using:
+                  <div class="code-block-wrapper">
+                    <pre><code>
+                         //If it is frontend
+                         npm run dev
+                         //if it is backend
+                         node Server.js
+             
+            </code></pre>
+                    <button class="copy-btn">Copy</button>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section id="page-customization">
+          <div class="step">
+            <h3>
+              <span class="step-number">3</span>Customizing Your Storefront
+              Pages
+            </h3>
+            <p>
+              Let's bring your brand to life! This section guides you through
+              customizing the key pages of your e-commerce site.
+            </p>
+
+            <!-- Browser Tab Customization -->
+            <div class="page-preview">
+              <h4>1. Browser Tab Customization(In your E-commerce-Project)</h4>
+              <p>
+                Make your store recognizable in browser tabs by setting a custom
+                title and icon.
+              </p>
+              <img
+                src="public/Screenshot-title.png"
+                alt="Browser tab customization preview"
+              />
+
+              <div class="note">
+                <h5>Customization Instructions:</h5>
+                <ol>
+                  <li>
+                    <strong>Update Tab Title & Description:</strong>
+                    <p>
+                      Edit the metadata in your layout file:
+                      <code>src/app/layout.tsx</code>
+                    </p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// layout.tsx
 export const metadata: Metadata = {
   title: "Your Shop Name",  // Change this
   description: "Your shop description for SEO",  // Change this
@@ -388,66 +433,74 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',  // Default icon path
   }
 };</code></pre>
-              <button class="copy-btn">Copy</button>
+                      <button class="copy-btn">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Add Custom Favicon:</strong>
+                    <p>
+                      Replace the default favicon at:
+                      <code>src/app/favicon.ico</code>
+                    </p>
+                    <img
+                      src="public/Screenshottab-icon.png"
+                      alt="Favicon replacement example"
+                      style="
+                        max-width: 300px;
+                        border: 1px solid #ddd;
+                        margin: 10px 0;
+                      "
+                    />
+                    <p>For best results:</p>
+                    <ul>
+                      <li>Use 512×512 source image</li>
+                      <li>Convert to .ico format</li>
+                      <li>Multiple sizes recommended (16x16, 32x32, 64x64)</li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </li>
-          <li>
-            <strong>Add Custom Favicon:</strong>
-            <p>
-              Replace the default favicon at:
-              <code>src/app/favicon.ico</code>
-            </p>
-            <img
-              src="public/Screenshottab-icon.png"
-              alt="Favicon replacement example"
-              style="max-width: 300px; border: 1px solid #ddd; margin: 10px 0;"
-            />
-            <p>For best results:</p>
-            <ul>
-              <li>Use 512×512 source image</li>
-              <li>Convert to .ico format</li>
-              <li>Multiple sizes recommended (16x16, 32x32, 64x64)</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-    </div>
 
-    <!-- Rest of your existing content -->
-    <div class="page-preview">
-      <h4>2. Shopping Home Page</h4>
-      <p>
-        This is the main storefront where customers get their first
-        impression and start browsing.
-      </p>
-      <img
-        src="public/Screenshot0002.png"
-        alt="Shopping Home Page Preview"
-      />
+            <!-- Rest of your existing content -->
+            <div class="page-preview">
+              <h4>2. Shopping Home Page</h4>
+              <p>
+                This is the main storefront where customers get their first
+                impression and start browsing.
+              </p>
+              <img
+                src="public/Screenshot0002.png"
+                alt="Shopping Home Page Preview"
+              />
 
-      <div class="note">
-        <h5>Customization Instructions:</h5>
-        <ol>
-          <li>
-            <strong>Update Your Logo:</strong>
-            <p>
-              Replace the placeholder logo at
-              <code>public/logo.png</code> with your own file.
-            </p>
-            <img
-              src="public/logoadd.png"
-              alt="Logo change example"
-              style="max-width: 300px; border: 1px solid #ddd; margin: 10px 0;"
-            />
-          </li>
-          <li>
-            <strong>Define Product Categories:</strong>
-            <p>
-              Edit categories in:
-              <code>src/data/categories.js</code>
-            </p>
-            <div class="code-block-wrapper">
-              <pre><code>// categories.js
+              <div class="note">
+                <h5>Customization Instructions:</h5>
+                <ol>
+                  <li>
+                    <strong>Update Your Logo:</strong>
+                    <p>
+                      Replace the placeholder logo at
+                      <code>public/logo.png</code> with your own file.
+                    </p>
+                    <img
+                      src="public/logoadd.png"
+                      alt="Logo change example"
+                      style="
+                        max-width: 300px;
+                        border: 1px solid #ddd;
+                        margin: 10px 0;
+                      "
+                    />
+                  </li>
+                  <li>
+                    <strong>Define Product Categories:</strong>
+                    <p>
+                      Edit categories in:
+                      <code>src/data/categories.js</code>
+                    </p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// categories.js
 module.exports = {
   PRODUCT_CATEGORIES: [
     "Men",
@@ -457,100 +510,87 @@ module.exports = {
     "Home Decor"
   ]
 };</code></pre>
-              <button class="copy-btn">Copy</button>
+                      <button class="copy-btn">Copy</button>
+                    </div>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </li>
-        </ol>
-      </div>
-    </div>
 
-    <!-- Shopping Cart & Checkout Section -->
-    <div class="page-preview">
-      <h4>3. Shopping Cart & Checkout</h4>
-      <p>
-        A seamless checkout process is vital for conversions.
-      </p>
-      <img
-        src="public/Screenshot0003.png"
-        alt="Shopping Cart Page Preview"
-      />
+            <!-- Shopping Cart & Checkout Section -->
+            <div class="page-preview">
+              <h4>3. Shopping Cart & Checkout</h4>
+              <p>A seamless checkout process is vital for conversions.</p>
+              <img
+                src="public/Screenshot0003.png"
+                alt="Shopping Cart Page Preview"
+              />
 
-      <div class="note">
-        <h5>Configuring Delivery Costs:</h5>
-        <ol>
-          <li>
-            <strong>Edit State-Based Delivery:</strong>
-            <p>
-              Modify <code>src/data/AddressData.js</code>:
-            </p>
-            <div class="code-block-wrapper">
-              <pre><code>// AddressData.js
+              <div class="note">
+                <h5>Configuring Delivery Costs:</h5>
+                <ol>
+                  <li>
+                    <strong>Edit State-Based Delivery:</strong>
+                    <p>Modify <code>src/data/AddressData.js</code>:</p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// AddressData.js
 export const USStates = [
   { name: "California", deliveryCost: 5 },
   { name: "New York", deliveryCost: 7 },
   // ... other states
 ];</code></pre>
-              <button class="copy-btn">Copy</button>
+                      <button class="copy-btn">Copy</button>
+                    </div>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </li>
-        </ol>
-      </div>
-    </div>
 
-    <!-- About & Contact Pages Section -->
-    <div class="page-preview">
-      <h4>4. About & Contact Pages</h4>
-      <p>
-        Build trust with well-crafted informational pages.
-      </p>
-      <img
-        src="public/Screenshot0001.png"
-        alt="Contact Page Preview"
-      />
+            <!-- About & Contact Pages Section -->
+            <div class="page-preview">
+              <h4>4. About & Contact Pages</h4>
+              <p>Build trust with well-crafted informational pages.</p>
+              <img src="public/Screenshot0001.png" alt="Contact Page Preview" />
 
-      <div class="note">
-        <h5>Content Customization:</h5>
-        <ol>
-          <li>
-            <strong>Update Contact Info:</strong>
-            <p>
-              Edit <code>src/data/contactInfo.js</code>:
-            </p>
-            <div class="code-block-wrapper">
-              <pre><code>// contactInfo.js
+              <div class="note">
+                <h5>Content Customization:</h5>
+                <ol>
+                  <li>
+                    <strong>Update Contact Info:</strong>
+                    <p>Edit <code>src/data/contactInfo.js</code>:</p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// contactInfo.js
 export default {
   email: "contact@yourstore.com",
   phone: "+1 (555) 123-4567"
 };</code></pre>
-              <button class="copy-btn">Copy</button>
-            </div>
-          </li>
-          <li>
-            <strong>Update FAQs:</strong>
-            <p>
-              Edit <code>src/data/faqs.js</code>:
-            </p>
-            <div class="code-block-wrapper">
-              <pre><code>// faqs.js
+                      <button class="copy-btn">Copy</button>
+                    </div>
+                  </li>
+                  <li>
+                    <strong>Update FAQs:</strong>
+                    <p>Edit <code>src/data/faqs.js</code>:</p>
+                    <div class="code-block-wrapper">
+                      <pre><code>// faqs.js
 export default [
   {
     question: "What's your return policy?",
     answer: "30 days money back guarantee."
   }
 ];</code></pre>
-              <button class="copy-btn">Copy</button>
+                      <button class="copy-btn">Copy</button>
+                    </div>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
+          </div>
+        </section>
 
         <section id="deployment">
           <div class="step">
             <h3>
-              <span class="step-number">3</span>Go Live! Deployment Guides
+              <span class="step-number">5</span>Go Live! Deployment Guides
             </h3>
             <p>
               It's time to share your project with the world. Deploying involves
